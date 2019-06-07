@@ -11,7 +11,7 @@ function riddleSolver(board) {
             if(board[y][x] !== 0) {
                 if(checkSpaceAround(y, x) === false) {
                     y = 0;
-                    x = 0;
+                    x = -1;
                 }
             }
         }
