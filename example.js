@@ -17,7 +17,6 @@ function riddleSolver(board) {
         }
     }
 
-
     function checkSpaceAround(y, x) {
         if (x < width - 1) if (board[y][x] === board[y][x + 1]) {
             let counter = 1;
@@ -27,11 +26,9 @@ function riddleSolver(board) {
             }
             
             if(counter>2) {
-                
                 for(let i = x; i < counter+x; i++) {
                     board[y][i] = 0;
                 }
-
                 return false
             }
         }
@@ -44,15 +41,14 @@ function riddleSolver(board) {
             }
 
             if (counter > 2) {
-
                 for (let i = y; i < counter + y; i++) {
                     board[i][x] = 0;
                 }
-
                 return false
             }
         }
     }
+
     return board
 }
 
