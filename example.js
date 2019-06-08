@@ -9,7 +9,7 @@ function riddleSolver(board) {
         for(let x = 0; x <= width; x++) {
             gravity(board)
             if(board[y][x] !== 0) {
-                if(checkSpaceAround(y, x) === false) {
+                if(removeAdjacentItems(y, x) === true) {
                     y = 0;
                     x = -1;
                 }
@@ -17,35 +17,35 @@ function riddleSolver(board) {
         }
     }
 
-    function checkSpaceAround(y, x) {
-        if (x < width - 1) if (board[y][x] === board[y][x + 1]) {
+    function removeAdjacentItems(y, x) {
+        if (x < width && board[y][x] === board[y][x + 1]) {
+            
             let counter = 1;
             for(let i = x + 1; i <= width; i++) {
                 if (board[y][x] === board[y][i]) counter++;
                 else break;
             }
-            
-            if(counter>2) {
-                for(let i = x; i < counter+x; i++) {
-                    board[y][i] = 0;
+                if(counter>2) {
+                    for(let i = x; i < counter+x; i++) {
+                        board[y][i] = 0;
+                    }
+                    return true
                 }
-                return false
-            }
         }
 
-        if (y < height - 1) if (board[y][x] === board[y + 1][x]) {
+        if (y < height && board[y][x] === board[y + 1][x]) {
+            
             let counter = 1;
             for (let i = y + 1; i <= height; i++) {
                 if (board[y][x] === board[i][x]) counter++;
                 else break;
             }
-
-            if (counter > 2) {
-                for (let i = y; i < counter + y; i++) {
-                    board[i][x] = 0;
+                if (counter > 2) {
+                    for (let i = y; i < counter + y; i++) {
+                        board[i][x] = 0;
+                    }
+                    return true
                 }
-                return false
-            }
         }
     }
 
