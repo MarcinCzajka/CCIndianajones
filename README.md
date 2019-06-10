@@ -43,4 +43,7 @@ to the value of current item and current item to 0. Function returns updated boa
 end of last array.
 
 I've used only standard for loops as it provides easiest access to current index and i believe it 
-would be significantly faster than loops provided by JavaScript (filter/map).
+is significantly faster than loops provided by JavaScript (filter/map).
+
+I have also nested helper function removeAdjacentItems() to decrease memory and computational power consumption
+By not having to recalculate array.length or send it and board outside of solve riddle function.
