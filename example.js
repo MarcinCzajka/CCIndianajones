@@ -1,6 +1,5 @@
 function riddleSolver(board) {
     if(!board) return;
-    console.log(board)
 
     const width = board[0].length - 1;
     const height = board.length - 1;
